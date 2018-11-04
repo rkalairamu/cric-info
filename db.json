@@ -1,0 +1,196 @@
+{
+  "user": [
+    {
+      "name": "admin",
+      "password": "12345",
+      "group_id": 1
+    },
+    {
+      "name": "sachin",
+      "password": "12345",
+      "group_id": 2
+    }
+  ],
+  "group": [
+    {
+      "id": 1,
+      "name": "admin"
+    },
+    {
+      "id": 1,
+      "name": "normal"
+    }
+  ],
+  "player": [
+    {
+      "name": "V Kohli",
+      "country_id": 1,
+      "role_id": 1,
+      "img_src": "kohli.jpg",
+      "id": 1
+    },
+    {
+      "name": "Mahendra Singh Dhoni",
+      "country_id": 1,
+      "role_id": 3,
+      "img_src": "dhoni.jpg",
+      "id": 2
+    },
+    {
+      "name": "test1",
+      "country_id": 1,
+      "role_id": 2,
+      "id": 3
+    },
+    {
+      "name": "test2",
+      "country_id": 2,
+      "role_id": 1,
+      "id": 4
+    },
+    {
+      "name": "test3",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 5
+    },
+    {
+      "name": "test4",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 6
+    },
+    {
+      "name": "test5",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 7
+    },
+    {
+      "name": "test6",
+      "country_id": 3,
+      "role_id": 2,
+      "id": 8
+    },
+    {
+      "name": "test7",
+      "country_id": 3,
+      "role_id": 3,
+      "id": 9
+    },
+    {
+      "name": "test8",
+      "country_id": 3,
+      "role_id": 2,
+      "id": 10
+    },
+    {
+      "name": "test9",
+      "country_id": 3,
+      "role_id": 3,
+      "id": 11
+    },
+    {
+      "name": "test10",
+      "country_id": 1,
+      "role_id": 2,
+      "id": 12
+    },
+    {
+      "name": "test11",
+      "country_id": 1,
+      "role_id": 2,
+      "id": 13
+    },
+    {
+      "name": "test12",
+      "country_id": 2,
+      "role_id": 1,
+      "id": 14
+    },
+    {
+      "name": "test13",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 15
+    },
+    {
+      "name": "test14",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 16
+    },
+    {
+      "name": "test15",
+      "country_id": 2,
+      "role_id": 2,
+      "id": 17
+    },
+    {
+      "name": "test16",
+      "country_id": 3,
+      "role_id": 2,
+      "id": 18
+    },
+    {
+      "name": "test17",
+      "country_id": 3,
+      "role_id": 3,
+      "id": 19
+    },
+    {
+      "name": "test18",
+      "country_id": 3,
+      "role_id": 2,
+      "id": 20
+    },
+    {
+      "name": "test19",
+      "country_id": 3,
+      "role_id": 3,
+      "id": 21
+    },
+    {
+      "name": "test20",
+      "country_id": 2,
+      "role_id": 3,
+      "img_src": "default.jpg",
+      "id": 22
+    },
+    {
+      "name": "Khan",
+      "country_id": 3,
+      "role_id": 3,
+      "img_src": "default.jpg",
+      "id": 23
+    }
+  ],
+  "country": [
+    {
+      "id": 1,
+      "name": "India"
+    },
+    {
+      "id": 2,
+      "name": "Australia"
+    },
+    {
+      "id": 3,
+      "name": "Pakistan"
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "Batsman"
+    },
+    {
+      "id": 2,
+      "name": "Bowler"
+    },
+    {
+      "name": "Wicket Keeper",
+      "id": 3
+    }
+  ]
+}
