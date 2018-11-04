@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="app-content">
+  <div class="user-links" *ngIf="user.permission.read">
+    <span>Welcome <span class="user-name">{{user.name}}</span> </span> |
+    <span class="logout-link cursor_pointer" (click)="logout()">Logout</span>
+  </div>
   <h1>
-    Welcome to {{ title }}!
+    {{ title }}
   </h1>
+  <app-login (loginUser)="checkUser($event)" *ngIf="!user.permission.read"></app-login>
+  <app-player-list *ngIf="user.permission.read"></app-player-list>
 </div>
