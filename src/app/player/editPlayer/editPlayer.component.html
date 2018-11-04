@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="playerForm" (ngSubmit)="updatePlayer(player)">
+    <div *ngIf="errMsg" class="message alert alert-danger">{{errMsg}}</div>
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Country" formControlName="country" required>
+        <mat-option [value]="country.id" *ngFor="let country of countries">{{country.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Role" formControlName="role" required>
+        <mat-option [value]="role.id" *ngFor="let role of roles">{{role.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <input type="file" [formControl]="fileFormControl" accept="{{filesTypeSelection}}" (change)="onFileChange($event)" /> -->
+
+    <button mat-flat-button color="primary" [disabled]="!playerForm.valid">Save</button>
+    <button mat-stroked-button color="primary" class="cancel-btn" (click)="cancel(player)">Cancel</button>
+  </form>
+</div>

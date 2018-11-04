@@ -1,0 +1,22 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="app-tree">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+    <button mat-icon-button disabled></button>
+    <div *ngIf="!isAdmin" (click)="showDetail(node.name)" class="cursor_pointer">{{node.type}}</div>
+    <div *ngIf="isAdmin" (click)="showDetail(node.name)" class="cursor_pointer"
+         [contextMenu]="basicMenu" [contextMenuSubject]="node">{{node.type}}</div>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.name" class="cursor_pointer">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <div class="cursor_pointer">{{node.name}}</div>
+  </mat-tree-node>
+</mat-tree>
+
+<context-menu *ngIf="isAdmin">
+  <ng-template contextMenuItem (execute)="deletePlayer($event)">Delete</ng-template>
+</context-menu>

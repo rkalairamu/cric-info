@@ -1,0 +1,56 @@
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-list-wrap {
+  flex-basis: 35%;
+  height: auto;
+  overflow: auto;
+}
+
+.player-photo-wrap {
+  flex-basis:25%;
+  margin-top:50px;
+  text-align: center;
+}
+
+.player-detail-edit-wrap {
+  flex-basis: 40%;
+  margin-top:50px;
+}
+
+.player-detail-row {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.player-detail-field {
+  text-align: right;
+  flex-basis: 40%;
+}
+
+.player-detail-value {
+  margin-left: 20px;
+  flex-basis: 60%;
+  text-align: left;
+}
+
+.action-button {
+  margin-top: 30px;
+  width: 80%;
+  text-align: center;
+}
+
+.action-button button {
+  margin: 0 10px;
+}
+
+.player-wrap {
+  height: 80%;
+  overflow: hidden;
+}
+
+.mat-tab-group {
+  height: 100%;
+}
