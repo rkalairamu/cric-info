@@ -1,0 +1,15 @@
+.login-form {
+  width: 350px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.mat-form-field, .action-button button {
+  width: 90%;
+}
+
+.action-button {
+  margin-bottom: 10px;
+}

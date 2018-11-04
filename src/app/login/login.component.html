@@ -1,0 +1,16 @@
+<div class="login-form">
+  <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+    <div *ngIf="errMsg" class="alert alert-danger">{{errMsg}}</div>
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password" formControlName="password" required>
+    </mat-form-field>
+
+    <div class="action-button">
+      <button mat-flat-button color="primary" [disabled]="!loginForm.valid" class="display-block">Login</button>
+    </div>
+  </form>
+</div>
