@@ -13,6 +13,10 @@ To get the mock data, run `json-server --watch db.json` command
 ## Running Development & JSON Server
 To run development & JSON server, run `npm start` command
 
+## User details
+Admin user: `admin/12345`
+Normal user: `sachin/12345`
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
