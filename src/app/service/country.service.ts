@@ -22,7 +22,7 @@ export class CountryService {
   }
 
   /**
-   * GET roles using API
+   * GET countries using API
    * @returns {Observable<Country[]>}
    */
   getCountries(): Observable<Country[]> {

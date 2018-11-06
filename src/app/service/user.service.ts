@@ -51,7 +51,12 @@ export class UserService {
       );
   }
 
-  setLoginUser(user: User) {
+  /**
+   *
+   * sets the logged-in user information in session
+   * @returns {{name: string; permission: {read: boolean; write: boolean}}}
+   */
+  setLoginUser(user: any) {
     this.user.permission.read = user.length > 0;
     if (this.user.permission.read) {
       this.user.name = user[0].name;
@@ -63,16 +68,28 @@ export class UserService {
     return this.user;
   }
 
+  /**
+   * gets the logged-in user information
+   * @returns {{name: string; permission: {read: boolean; write: boolean}}}
+   */
   getLoginUser() {
     const user = sessionStorage.getItem('user');
     this.user = JSON.parse(user) || this.getloginDefault();
     return this.user;
   }
 
+  /**
+   * true if the user is admin. Otherwise normal user
+   * @returns {boolean}
+   */
   isAdmin() {
-    return this.user.permission.write;
+    return this.user && this.user.permission && this.user.permission.write;
   }
 
+  /**
+   * logout from the system
+   * @returns {{name: string; permission: {read: boolean; write: boolean}}}
+   */
   logout() {
     sessionStorage.removeItem('user');
     this.user = this.getloginDefault();

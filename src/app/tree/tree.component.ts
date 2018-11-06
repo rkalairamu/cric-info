@@ -24,7 +24,7 @@ export class TreeComponent implements DoCheck {
 
   transformer = (node: FileNode, level: number) => {
     return new FileFlatNode(!!node.children, node.name, level, node.type);
-  };
+  }
   private _getLevel = (node: FileFlatNode) => node.level;
 
   private _isExpandable = (node: FileFlatNode) => node.expandable;
@@ -42,7 +42,7 @@ export class TreeComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    this.dataSource.data = this.buildFileTree(this.players, 0);
+    this.dataSource.data = this.buildFileTree(this.players || [], 0);
     this.treeControl.expandAll();
   }
 

@@ -34,10 +34,6 @@ export class PlayerComponent implements OnInit {
     sort: string
   };
   private showFirstPlayer: boolean;
-  public items = [
-    {name: 'John', otherProperty: 'Foo'},
-    {name: 'Joe', otherProperty: 'Bar'}
-  ];
 
   constructor(private userService: UserService,
               private playerService: PlayerService,
@@ -66,14 +62,25 @@ export class PlayerComponent implements OnInit {
     this.message = null;
   }
 
+  /**
+   * gets all the countries
+   * @returns {Observable<Country[]>}
+   */
   getCountries() {
     return this.countryService.getCountries();
   }
 
+  /**
+   * gets all the roles
+   * @returns {Observable<Role[]>}
+   */
   getRoles() {
     return this.roleService.getRoles();
   }
 
+  /**
+   * gets first 10 players when the page loads. Next set of 10 players will be loaded using the lazy loading.
+   */
   getPlayers(): void {
     this.playerService.getPlayers(this.pagination.number, this.pagination.count, this.pagination.sort)
       .subscribe(players => {
@@ -91,6 +98,9 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  /**
+   * Creates country List
+   */
   setCountryList() {
     this.countries.forEach(function (country) {
       this.countryList[country.id] = country.name;
@@ -98,6 +108,9 @@ export class PlayerComponent implements OnInit {
     }.bind(this));
   }
 
+  /**
+   * Creates role list
+   */
   setRoleList() {
     this.roles.forEach(function (role) {
       this.roleList[role.id] = role.name;
@@ -105,18 +118,30 @@ export class PlayerComponent implements OnInit {
     }.bind(this));
   }
 
-  getGroupByCountry(players: Player[]): any {
+  /**
+   * Group players list by countries list
+   * @param {Player[]} players
+   */
+  getGroupByCountry(players: Player[]) {
     players.forEach(function (player) {
       this.playersByCountry[this.countryList[player.country_id]][player.id] = player.name;
     }.bind(this));
   }
 
-  getGroupByRole(players: Player[]): any {
+  /**
+   * Group players list by roles list
+   * @param {Player[]} players
+   */
+  getGroupByRole(players: Player[]) {
     players.forEach(function (player) {
       this.playersByRole[this.roleList[player.role_id]][player.id] = player.name;
     }.bind(this));
   }
 
+  /**
+   * Get player using player id
+   * @param {number} playerId
+   */
   getPlayer(playerId: number) {
     this.playerService.getPlayer(playerId)
       .subscribe(player => {
@@ -125,11 +150,19 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  /**
+   * show player details
+   * @param {number} playerId
+   */
   showDetail(playerId: number) {
     this.editable = false;
     this.getPlayer(playerId);
   }
 
+  /**
+   * Refresh the player details once the player is updated
+   * @param {Player} oldPlayer
+   */
   refreshPlayer(oldPlayer: Player) {
     this.editable = false;
     this.playerService.getPlayer(oldPlayer.id)
@@ -150,6 +183,10 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  /**
+   * sets default data for new player
+   * @param isNewPlayer
+   */
   editPlayer(isNewPlayer) {
     this.editable = true;
     this.message = null;
@@ -158,6 +195,10 @@ export class PlayerComponent implements OnInit {
     }
   }
 
+  /**
+   * deletes player
+   * @param deletePlayerId
+   */
   deletePlayer(deletePlayerId) {
     this.getPlayer(deletePlayerId);
     this.playerService.deletePlayer(deletePlayerId)
@@ -169,6 +210,10 @@ export class PlayerComponent implements OnInit {
       });
   }
 
+  /**
+   * load more players using the lazy loading
+   * @param event
+   */
   loadMorePlayers(event) {
     if (!this.players || this.players.length === 0) {
       return;
@@ -177,6 +222,10 @@ export class PlayerComponent implements OnInit {
     this.getPlayers();
   }
 
+  /**
+   * display success message once the player is updated
+   * @param msg
+   */
   displayMessage(msg) {
     this.message = msg;
     setTimeout(function () {
@@ -184,6 +233,9 @@ export class PlayerComponent implements OnInit {
     }.bind(this), 3000);
   }
 
+  /**
+   * Launch photo in the new window
+   */
   launchPhoto() {
     const image = document.getElementById('player-photo');
     const url = image.getAttribute('src');

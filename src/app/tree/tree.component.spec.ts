@@ -1,6 +1,9 @@
 import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatIconModule} from '@angular/material/icon';
+import {ContextMenuModule} from 'ngx-contextmenu';
 
 import {TreeComponent} from './tree.component';
 
@@ -13,6 +16,9 @@ describe('JobPostComponent', () => {
       imports: [
         BrowserAnimationsModule,
         HttpClientModule,
+        MatTreeModule,
+        MatIconModule,
+        ContextMenuModule.forRoot()
       ],
       declarations: [TreeComponent],
       providers: []

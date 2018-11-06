@@ -40,7 +40,7 @@ export class PlayerService {
   }
 
   /**
-   * GET players using API
+   * GET a player using API
    * @returns {Observable<Player>}
    */
   getPlayer(id: number): Observable<any> {
@@ -52,7 +52,7 @@ export class PlayerService {
   }
 
   /**
-   * Check player using API
+   * Check the player using API
    * @returns {Observable<Player>}
    */
   checkPlayer(newPlayer: Player): Observable<any> {
@@ -65,7 +65,7 @@ export class PlayerService {
   }
 
   /**
-   * Create players using API
+   * Create the player using API
    * @returns {Observable<Player[]>}
    */
   createPlayer(player: Player): Observable<any> {
@@ -77,7 +77,7 @@ export class PlayerService {
   }
 
   /**
-   * Update players using API
+   * Update the player using API
    * @returns {Observable<Player[]>}
    */
   updatePlayer(id: number, player: Player): Observable<any> {

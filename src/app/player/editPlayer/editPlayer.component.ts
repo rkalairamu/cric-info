@@ -24,8 +24,7 @@ export class EditPlayerComponent implements OnChanges {
     file: new FormControl('', [])
   });
 
-  filesTypeSelection = ['.png', '.jpg'];
-
+  // filesTypeSelection = ['.png', '.jpg'];
 
   constructor(private playerService: PlayerService) {
   }
@@ -39,6 +38,10 @@ export class EditPlayerComponent implements OnChanges {
     this.errMsg = null;
   }
 
+  /**
+   * updates the player
+   * @param {Player} oldPlayer
+   */
   updatePlayer(oldPlayer: Player): void {
     const updatedPlayer = {
       name: this.playerForm.value.name,
@@ -66,6 +69,10 @@ export class EditPlayerComponent implements OnChanges {
     }
   }
 
+  /**
+   * Cancel button action in the player update form
+   * @param {Player} oldPlayer
+   */
   cancel(oldPlayer: Player): void {
     this.updatedPlayer.emit(oldPlayer);
   }

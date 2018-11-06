@@ -1,10 +1,16 @@
 import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material';
+import {TreeModule} from '../tree/tree.module';
+import {EditPlayerModule} from './editPlayer/editPlayer.module';
+import {MatButtonModule} from '@angular/material/button';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 
 import {PlayerComponent} from './player.component';
 
-describe('JobPostComponent', () => {
+describe('PlayerComponent', () => {
   let component: PlayerComponent;
   let fixture: ComponentFixture<PlayerComponent>;
 
@@ -12,7 +18,13 @@ describe('JobPostComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
-        HttpClientModule,
+        MatTabsModule,
+        TreeModule,
+        MatButtonModule,
+        InfiniteScrollModule,
+        EditPlayerModule,
+        MatIconModule,
+        HttpClientModule
       ],
       declarations: [PlayerComponent],
       providers: []

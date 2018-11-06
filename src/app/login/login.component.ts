@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  checkLogin(): void {
+  /**
+   * checks whether has valid credentials
+   */
+  checkLogin(): any {
     this.userService.checkUser(this.loginForm.value.name, this.loginForm.value.password)
       .subscribe(user => {
         if (user.length === 0) {

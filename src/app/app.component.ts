@@ -27,6 +27,9 @@ export class AppComponent implements OnInit {
     this.user = this.userService.setLoginUser(user);
   }
 
+  /**
+   * Logout from the system
+   */
   logout() {
     this.user = this.userService.logout();
   }

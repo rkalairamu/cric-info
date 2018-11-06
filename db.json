@@ -161,7 +161,7 @@
     {
       "name": "test20",
       "country_id": 2,
-      "role_id": 1,
+      "role_id": 3,
       "img_src": "default.jpg",
       "id": 24
     }
