@@ -5,6 +5,7 @@ import {TreeModule} from '../tree/tree.module';
 import {EditPlayerModule} from './editPlayer/editPlayer.module';
 import {MatButtonModule} from '@angular/material/button';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {MatIconModule} from '@angular/material/icon';
 
 import {PlayerComponent} from './player.component';
 
@@ -22,7 +23,8 @@ import {PlayerComponent} from './player.component';
     TreeModule,
     MatButtonModule,
     InfiniteScrollModule,
-    EditPlayerModule
+    EditPlayerModule,
+    MatIconModule
   ]
 })
 export class PlayerModule {

@@ -35,8 +35,8 @@ export class PlayerComponent implements OnInit {
   };
   private showFirstPlayer: boolean;
   public items = [
-    { name: 'John', otherProperty: 'Foo' },
-    { name: 'Joe', otherProperty: 'Bar' }
+    {name: 'John', otherProperty: 'Foo'},
+    {name: 'Joe', otherProperty: 'Bar'}
   ];
 
   constructor(private userService: UserService,
@@ -135,7 +135,9 @@ export class PlayerComponent implements OnInit {
     this.playerService.getPlayer(oldPlayer.id)
       .subscribe(player => {
         const msg = this.player.name ? 'Updated' : 'Created';
-        this.displayMessage('Player "' + player.name + '" ' + msg + ' successfully');
+        if (player.id > 0 && JSON.stringify(oldPlayer) !== JSON.stringify(player)) {
+          this.displayMessage('Player "' + player.name + '" ' + msg + ' successfully');
+        }
         this.player = player;
         if (player.country_id !== oldPlayer.country_id) {
           delete this.playersByCountry[this.countryList[oldPlayer.country_id]][player.id];
@@ -160,7 +162,6 @@ export class PlayerComponent implements OnInit {
     this.getPlayer(deletePlayerId);
     this.playerService.deletePlayer(deletePlayerId)
       .subscribe(() => {
-        this.showDropdown = false;
         delete this.playersByCountry[this.countryList[this.player.country_id]][this.player.id];
         delete this.playersByRole[this.roleList[this.player.role_id]][this.player.id];
         this.displayMessage('Player "' + this.player.name + '" deleted successfully');
@@ -181,5 +182,11 @@ export class PlayerComponent implements OnInit {
     setTimeout(function () {
       this.message = null;
     }.bind(this), 3000);
+  }
+
+  launchPhoto() {
+    const image = document.getElementById('player-photo');
+    const url = image.getAttribute('src');
+    window.open(url, 'Image', 'resizable=1');
   }
 }

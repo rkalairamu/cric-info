@@ -1,4 +1,4 @@
-<div>
+<div class="player-edit-form">
   <form [formGroup]="playerForm" (ngSubmit)="updatePlayer(player)">
     <div *ngIf="errMsg" class="message alert alert-danger">{{errMsg}}</div>
     <mat-form-field>
@@ -17,9 +17,11 @@
       </mat-select>
     </mat-form-field>
 
-    <!-- <input type="file" [formControl]="fileFormControl" accept="{{filesTypeSelection}}" (change)="onFileChange($event)" /> -->
+    <!-- <div class="file-upload-wrap">
+      <input type="file" formControlName="file" accept="{{filesTypeSelection}}"/>
+    </div> -->
 
     <button mat-flat-button color="primary" [disabled]="!playerForm.valid">Save</button>
-    <button mat-stroked-button color="primary" class="cancel-btn" (click)="cancel(player)">Cancel</button>
+    <button type="button" mat-stroked-button color="primary" class="cancel-btn" (click)="cancel(player)">Cancel</button>
   </form>
 </div>

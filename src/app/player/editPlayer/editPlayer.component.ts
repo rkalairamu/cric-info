@@ -20,10 +20,11 @@ export class EditPlayerComponent implements OnChanges {
   playerForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     country: new FormControl(0, [Validators.required]),
-    role: new FormControl(0, [Validators.required])
+    role: new FormControl(0, [Validators.required]),
+    file: new FormControl('', [])
   });
 
-  // filesTypeSelection = ['.png', '.jpg'];
+  filesTypeSelection = ['.png', '.jpg'];
 
 
   constructor(private playerService: PlayerService) {

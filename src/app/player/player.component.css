@@ -3,21 +3,28 @@
   justify-content: space-between;
 }
 
+.player-wrap {
+  margin: 0 10px;
+}
+
 .player-list-wrap {
   flex-basis: 35%;
-  height: auto;
+  height: 100%;
+}
+
+.player-list-wrap .card-body {
+  height: 100%;
   overflow: auto;
 }
 
 .player-photo-wrap {
   flex-basis:25%;
-  margin-top:50px;
   text-align: center;
+  margin: 0 10px;
 }
 
 .player-detail-edit-wrap {
   flex-basis: 40%;
-  margin-top:50px;
 }
 
 .player-detail-row {
@@ -53,4 +60,8 @@
 
 .mat-tab-group {
   height: 100%;
+}
+
+.launch-photo {
+  float: right;
 }

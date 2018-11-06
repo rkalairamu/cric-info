@@ -40,6 +40,7 @@
       "name": "test1",
       "country_id": 1,
       "role_id": 2,
+      "img_src": "default.jpg",
       "id": 3
     },
     {
@@ -151,18 +152,18 @@
       "id": 21
     },
     {
-      "name": "test20",
-      "country_id": 2,
-      "role_id": 3,
-      "img_src": "default.jpg",
-      "id": 22
-    },
-    {
       "name": "Khan",
       "country_id": 3,
       "role_id": 3,
       "img_src": "default.jpg",
       "id": 23
+    },
+    {
+      "name": "test20",
+      "country_id": 2,
+      "role_id": 1,
+      "img_src": "default.jpg",
+      "id": 24
     }
   ],
   "country": [

@@ -1,44 +1,60 @@
 <div class="display-flex player-wrap">
-  <div class="player-list-wrap" infiniteScroll [infiniteScrollDistance]="2"
-       [infiniteScrollThrottle]="50" (scrolled)="loadMorePlayers($event)" [infiniteScrollContainer]="'.mat-tab-body-content'">
-    <mat-tab-group>
-      <mat-tab label="Country">
-        <app-tree *ngIf="playersByCountry" [players]="playersByCountry" (playerId)="showDetail($event)"
-                  (deletePlayerId)="deletePlayer($event)"></app-tree>
-      </mat-tab>
-      <mat-tab label="Player Role">
-        <app-tree *ngIf="playersByRole" [players]="playersByRole" (playerId)="showDetail($event)"
-                  (deletePlayerId)="showContextMenu($event)"></app-tree>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-  <div class="player-photo-wrap" *ngIf="player">
-    <img src="assets/player/{{player.img_src}}" width="160"/>
-  </div>
-  <div class="player-detail-edit-wrap">
-    <div *ngIf="message" class="message alert alert-success"> {{ message }}</div>
-    <div class="player-detail-wrap" *ngIf="player && player.id && !editable">
-      <div class="player-detail-row">
-        <div class="player-detail-field">Name:</div>
-        <div class="player-detail-value">{{player.name}}</div>
-      </div>
-      <div class="player-detail-row">
-        <div class="player-detail-field">Country:</div>
-        <div class="player-detail-value">{{countryList[player.country_id]}}</div>
-      </div>
-      <div class="player-detail-row">
-        <div class="player-detail-field">Role:</div>
-        <div class="player-detail-value">{{roleList[player.role_id]}}</div>
-      </div>
+  <div class="player-list-wrap card" infiniteScroll [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50" (scrolled)="loadMorePlayers($event)"
+       [infiniteScrollContainer]="'.mat-tab-body-content'">
+    <div class="card-header">Player List</div>
+    <div class="card-body">
+      <mat-tab-group>
+        <mat-tab label="Country">
+          <app-tree *ngIf="playersByCountry" [players]="playersByCountry" (playerId)="showDetail($event)"
+                    (deletePlayerId)="deletePlayer($event)"></app-tree>
+        </mat-tab>
+        <mat-tab label="Player Role">
+          <app-tree *ngIf="playersByRole" [players]="playersByRole" (playerId)="showDetail($event)"
+                    (deletePlayerId)="showContextMenu($event)"></app-tree>
+        </mat-tab>
+      </mat-tab-group>
     </div>
-    <div class="action-button" *ngIf="isAdmin">
-      <button *ngIf="!editable" mat-flat-button color="primary" (click)="editPlayer(true)">Add New Player</button>
-      <button *ngIf="player && player.id && !editable" mat-flat-button color="primary" (click)="editPlayer(false)">Edit</button>
-      <button *ngIf="player && player.id && showDropdown" mat-flat-button color="warn" (click)="deletePlayer()">Delete</button>
+  </div>
+  <div class="player-photo-wrap card" *ngIf="player">
+    <div class="card-header">
+      {{player.name}}
+      <mat-icon class="launch-photo cursor_pointer" (click)="launchPhoto(player)">launch</mat-icon>
     </div>
-    <div class="player-edit-wrap" *ngIf="editable">
-      <app-player-edit [player]="player" [countries]="countries" [roles]="roles"
-                       (updatedPlayer)="refreshPlayer($event)"></app-player-edit>
+    <div class="card-body">
+      <img src="assets/player/{{player.img_src}}" width="200" alt="{{player.name}}" id="player-photo"/>
+    </div>
+  </div>
+  <div class="player-detail-edit-wrap card">
+    <div class="card-header">Player Detail</div>
+    <div class="card-body">
+      <div *ngIf="message" class="message alert alert-success"> {{ message }}</div>
+      <div class="player-detail-wrap" *ngIf="player && player.id && !editable">
+        <div class="player-detail-row">
+          <div class="player-detail-field">Name:</div>
+          <div class="player-detail-value">{{player.name}}</div>
+        </div>
+        <div class="player-detail-row">
+          <div class="player-detail-field">Country:</div>
+          <div class="player-detail-value">{{countryList[player.country_id]}}</div>
+        </div>
+        <div class="player-detail-row">
+          <div class="player-detail-field">Role:</div>
+          <div class="player-detail-value">{{roleList[player.role_id]}}</div>
+        </div>
+      </div>
+      <div class="action-button" *ngIf="isAdmin">
+        <button *ngIf="!editable" mat-flat-button color="primary" (click)="editPlayer(true)">Add New Player</button>
+        <button *ngIf="player && player.id && !editable" mat-flat-button color="primary" (click)="editPlayer(false)">
+          Edit
+        </button>
+        <button *ngIf="player && player.id && showDropdown" mat-flat-button color="warn" (click)="deletePlayer()">Delete
+        </button>
+      </div>
+      <div class="player-edit-wrap" *ngIf="editable">
+        <app-player-edit [player]="player" [countries]="countries" [roles]="roles"
+                         (updatedPlayer)="refreshPlayer($event)"></app-player-edit>
+      </div>
     </div>
   </div>
 </div>
