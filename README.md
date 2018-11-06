@@ -10,6 +10,9 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
  
 To get the mock data, run `json-server --watch db.json` command
 
+## Running Development & JSON Server
+To run development & JSON server, run `npm start` command
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
